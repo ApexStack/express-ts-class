@@ -1,4 +1,5 @@
 import express, { Application } from "express";
+import cors from 'cors';
 import { routes } from "./routes";
 import { errorMiddleWare } from "./middleware/error.middleware";
 import * as dotenv from 'dotenv';
@@ -18,6 +19,7 @@ class App {
   private config(): void {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(cors());
   }
 
   private routes(): void {
